@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="とことこが提供するiPhoneアプリ、ちがいタップ、株優ポケット、発送ぴたっとの紹介ページです。">
+  <title>とことこのアプリ</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #fffaf2;
+      --bg-2: #f5ead7;
+      --panel: rgba(255, 255, 255, 0.88);
+      --text: #253033;
+      --sub: #657277;
+      --line: rgba(189, 165, 132, 0.34);
+      --orange: #f26a43;
+      --green: #3da96a;
+      --blue: #4d7eb7;
+      --brown: #a4673f;
+      --shadow: rgba(92, 64, 34, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 10%, rgba(242, 106, 67, 0.18), transparent 30rem),
+        radial-gradient(circle at 88% 18%, rgba(61, 169, 106, 0.18), transparent 26rem),
+        linear-gradient(160deg, var(--bg) 0%, var(--bg-2) 100%);
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 56px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 56px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-mark {
+      display: inline-grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border-radius: 13px;
+      background: #ffffff;
+      box-shadow: 0 12px 24px var(--shadow);
+      color: var(--orange);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .nav-links a {
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.58);
+      color: var(--sub);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 34px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--brown);
+      font-size: 0.92rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 7vw, 5.4rem);
+      line-height: 1.04;
+      letter-spacing: -0.06em;
+      margin: 0 0 20px;
+    }
+
+    .lead {
+      max-width: 720px;
+      margin: 0;
+      color: var(--sub);
+      font-size: clamp(1rem, 2vw, 1.18rem);
+      font-weight: 650;
+    }
+
+    .hero-panel {
+      position: relative;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      background: var(--panel);
+      box-shadow: 0 24px 80px var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: -70px -50px auto auto;
+      width: 170px;
+      height: 170px;
+      border-radius: 999px;
+      background: rgba(242, 106, 67, 0.18);
+    }
+
+    .hero-panel strong {
+      display: block;
+      position: relative;
+      font-size: 1.5rem;
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+
+    .hero-panel p {
+      position: relative;
+      margin: 0;
+      color: var(--sub);
+      font-weight: 650;
+    }
+
+    .apps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .app-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: var(--panel);
+      box-shadow: 0 20px 48px var(--shadow);
+    }
+
+    .icon {
+      display: inline-grid;
+      width: 62px;
+      height: 62px;
+      place-items: center;
+      border-radius: 20px;
+      color: #ffffff;
+      font-size: 1.55rem;
+      font-weight: 900;
+      box-shadow: 0 16px 28px rgba(37, 48, 51, 0.14);
+      margin-bottom: 20px;
+    }
+
+    .tap .icon { background: linear-gradient(135deg, #ff8b56, var(--orange)); }
+    .pocket .icon { background: linear-gradient(135deg, #53c57f, var(--green)); }
+    .ship .icon { background: linear-gradient(135deg, #6aa1df, var(--blue)); }
+
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      line-height: 1.25;
+      margin: 0 0 8px;
+      letter-spacing: -0.03em;
+    }
+
+    .tagline {
+      margin: 0 0 16px;
+      color: var(--brown);
+      font-weight: 800;
+    }
+
+    .description {
+      margin: 0 0 20px;
+      color: var(--sub);
+      font-weight: 600;
+    }
+
+    .features {
+      display: grid;
+      gap: 10px;
+      padding: 0;
+      margin: auto 0 22px;
+      list-style: none;
+    }
+
+    .features li {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .features li::before {
+      content: "";
+      flex: 0 0 auto;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: currentColor;
+      margin-top: 0.75em;
+      opacity: 0.48;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 15px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-weight: 850;
+      box-shadow: 0 8px 18px rgba(92, 64, 34, 0.08);
+    }
+
+    .button.primary {
+      background: var(--text);
+      border-color: var(--text);
+      color: #ffffff;
+    }
+
+    .note {
+      margin-top: 28px;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.62);
+      color: var(--sub);
+      font-weight: 650;
+    }
+
+    footer {
+      margin-top: 36px;
+      color: var(--sub);
+      font-size: 0.92rem;
+      text-align: center;
+    }
+
+    @media (max-width: 880px) {
+      .hero,
+      .apps {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-bottom: 42px;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        padding: 22px 14px 44px;
+      }
+
+      .app-card,
+      .hero-panel {
+        border-radius: 24px;
+        padding: 20px;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <nav class="nav" aria-label="メインナビゲーション">
+      <a class="brand" href="./index.html" aria-label="とことこのアプリ ホーム">
+        <span class="brand-mark">と</span>
+        <span>とことこのアプリ</span>
+      </a>
+      <div class="nav-links">
+        <a href="#chigai-tap">ちがいタップ</a>
+        <a href="#kabuyu-pocket">株優ポケット</a>
+        <a href="#hasso-pitatto">発送ぴたっと</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div>
+        <span class="eyebrow">iPhone Apps by とことこ</span>
+        <h1>日常の小さな手間を、少しだけ軽く。</h1>
+        <p class="lead">
+          とことこでは、空き時間に遊べるゲーム、株主優待の管理、発送方法の比較など、
+          身近な場面で使いやすいアプリを制作しています。
+        </p>
+      </div>
+      <aside class="hero-panel">
+        <strong>このページについて</strong>
+        <p>
+          App Store のマーケティングURLとして利用しやすい、アプリ紹介用のページです。
+          公開後はこのページと同じドメイン直下に app-ads.txt を配置できます。
+        </p>
+      </aside>
+    </section>
+
+    <section class="apps" aria-label="アプリ一覧">
+      <article class="app-card tap" id="chigai-tap">
+        <div class="icon" aria-hidden="true">タ</div>
+        <h2>ちがいタップ</h2>
+        <p class="tagline">1つだけ違う文字を見つける脳トレゲーム</p>
+        <p class="description">
+          たくさん並んだ文字の中から、1つだけ違う文字を見つけてタップするシンプルなゲームです。
+          やさしい、ふつう、むずかしいの3段階で、短い空き時間にも遊べます。
+        </p>
+        <ul class="features">
+          <li>片手でも遊びやすいタップ操作</li>
+          <li>難易度ごとの記録と連続正解数</li>
+          <li>広告なしの買い切り機能に対応</li>
+        </ul>
+        <div class="buttons">
+          <a class="button primary" href="./support.html">サポート</a>
+          <a class="button" href="./privacy.html">プライバシーポリシー</a>
+        </div>
+      </article>
+
+      <article class="app-card pocket" id="kabuyu-pocket">
+        <div class="icon" aria-hidden="true">優</div>
+        <h2>株優ポケット</h2>
+        <p class="tagline">株主優待を忘れず、使いやすく管理</p>
+        <p class="description">
+          株主優待券の企業名、券種、有効期限、使用状況などを整理し、
+          優待を使い忘れにくくするための管理アプリです。
+        </p>
+        <ul class="features">
+          <li>優待券の登録、一覧表示、使用状況管理</li>
+          <li>有効期限が近い優待の確認</li>
+          <li>近くで使える優待を探しやすい設計</li>
+        </ul>
+        <div class="buttons">
+          <a class="button primary" href="https://apps.apple.com/jp/app/%E6%A0%AA%E5%84%AA%E3%83%9D%E3%82%B1%E3%83%83%E3%83%88/id6761040728">App Store で見る</a>
+        </div>
+      </article>
+
+      <article class="app-card ship" id="hasso-pitatto">
+        <div class="icon" aria-hidden="true">送</div>
+        <h2>発送ぴたっと</h2>
+        <p class="tagline">発送サイズと送料の目安をすばやく比較</p>
+        <p class="description">
+          荷物サイズや重量などをもとに、発送方法の候補や送料の目安を比較しやすくするためのアプリです。
+          フリマ出品後の発送方法選びをサポートします。
+        </p>
+        <ul class="features">
+          <li>サイズと重さから発送候補を確認</li>
+          <li>匿名配送などの条件で絞り込み</li>
+          <li>発送前の確認メモとして使いやすい構成</li>
+        </ul>
+        <div class="buttons">
+          <a class="button primary" href="https://apps.apple.com/us/app/%E7%99%BA%E9%80%81%E3%81%B4%E3%81%9F%E3%81%A3%E3%81%A8/id6761372984#information">App Store で見る</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="note">
+      掲載内容は各アプリの概要です。価格、機能、提供状況は変更される場合があります。
+      発送ぴたっとの送料や発送条件は目安であり、最終的な料金や受付可否は各配送事業者、各サービスの公式案内をご確認ください。
+    </section>
+
+    <footer>
+      <p>運営者: とことこ</p>
+      <p>最終更新日: 2026年4月7日</p>
+    </footer>
+  </main>
+</body>
+</html>
