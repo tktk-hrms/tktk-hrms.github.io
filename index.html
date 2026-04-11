@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="とことこが提供するiPhoneアプリ、ちがいタップ、株優ポケット、発送ぴたっとの紹介ページです。">
+  <meta name="description" content="とことこが提供するiPhoneアプリ、色ちがいタップ、ちがいタップ、株優ポケット、発送ぴたっとの紹介ページです。">
   <title>とことこのアプリ</title>
   <style>
     :root {
@@ -17,6 +17,7 @@
       --orange: #f26a43;
       --green: #3da96a;
       --blue: #4d7eb7;
+      --cyan: #219bc7;
       --brown: #a4673f;
       --shadow: rgba(92, 64, 34, 0.14);
     }
@@ -166,7 +167,7 @@
 
     .apps {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 18px;
       margin-top: 34px;
     }
@@ -195,6 +196,7 @@
       margin-bottom: 20px;
     }
 
+    .color .icon { background: linear-gradient(135deg, #4fd2cc, var(--cyan)); }
     .tap .icon { background: linear-gradient(135deg, #ff8b56, var(--orange)); }
     .pocket .icon { background: linear-gradient(135deg, #53c57f, var(--green)); }
     .ship .icon { background: linear-gradient(135deg, #6aa1df, var(--blue)); }
@@ -289,9 +291,14 @@
       text-align: center;
     }
 
-    @media (max-width: 880px) {
-      .hero,
+    @media (max-width: 1080px) {
       .apps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 880px) {
+      .hero {
         grid-template-columns: 1fr;
       }
 
@@ -311,6 +318,10 @@
         padding: 22px 14px 44px;
       }
 
+      .apps {
+        grid-template-columns: 1fr;
+      }
+
       .app-card,
       .hero-panel {
         border-radius: 24px;
@@ -326,11 +337,12 @@
 <body>
   <main class="page">
     <nav class="nav" aria-label="メインナビゲーション">
-      <a class="brand" href="./index.html" aria-label="とことこのアプリ ホーム">
+      <a class="brand" href="https://tktk-hrms.github.io/" aria-label="とことこのアプリ ホーム">
         <span class="brand-mark">と</span>
         <span>とことこのアプリ</span>
       </a>
       <div class="nav-links">
+        <a href="#color-tap">色ちがいタップ</a>
         <a href="#chigai-tap">ちがいタップ</a>
         <a href="#kabuyu-pocket">株優ポケット</a>
         <a href="#hasso-pitatto">発送ぴたっと</a>
@@ -356,6 +368,25 @@
     </section>
 
     <section class="apps" aria-label="アプリ一覧">
+      <article class="app-card color" id="color-tap">
+        <div class="icon" aria-hidden="true">色</div>
+        <h2>色ちがいタップ</h2>
+        <p class="tagline">1枚だけ違う色を見つける脳トレゲーム</p>
+        <p class="description">
+          並んだタイルの中から、1枚だけ少し色が違うタイルを見つけてタップするシンプルなゲームです。
+          のんびり、スタンダード、タイムアタックの3モードで、短い空き時間にも遊べます。
+        </p>
+        <ul class="features">
+          <li>片手でも遊びやすいタップ操作</li>
+          <li>難易度ごとの記録とデイリーチャレンジ</li>
+          <li>広告なしの買い切り機能に対応</li>
+        </ul>
+        <div class="buttons">
+          <a class="button primary" href="./support.html">サポート</a>
+          <a class="button" href="./privacy.html">プライバシーポリシー</a>
+        </div>
+      </article>
+
       <article class="app-card tap" id="chigai-tap">
         <div class="icon" aria-hidden="true">タ</div>
         <h2>ちがいタップ</h2>
@@ -370,8 +401,7 @@
           <li>広告なしの買い切り機能に対応</li>
         </ul>
         <div class="buttons">
-          <a class="button primary" href="./support.html">サポート</a>
-          <a class="button" href="./privacy.html">プライバシーポリシー</a>
+          <a class="button primary" href="https://apps.apple.com/us/app/%E3%81%A1%E3%81%8C%E3%81%84%E3%82%BF%E3%83%83%E3%83%97/id6761328994">App Store で見る</a>
         </div>
       </article>
 
@@ -414,12 +444,13 @@
 
     <section class="note">
       掲載内容は各アプリの概要です。価格、機能、提供状況は変更される場合があります。
+      色ちがいタップの色の見え方は、端末の画面設定、環境光、個人差によって変わる場合があります。
       発送ぴたっとの送料や発送条件は目安であり、最終的な料金や受付可否は各配送事業者、各サービスの公式案内をご確認ください。
     </section>
 
     <footer>
       <p>運営者: とことこ</p>
-      <p>最終更新日: 2026年4月7日</p>
+      <p>最終更新日: 2026年4月11日</p>
     </footer>
   </main>
 </body>
